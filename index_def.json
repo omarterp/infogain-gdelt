@@ -1,0 +1,350 @@
+{
+  "settings": {
+    "index.mapping.ignore_malformed": true,
+    "index": {
+      "number_of_shards": 3,
+      "number_of_replicas": 2
+    }
+  },
+  "mappings": {
+    "event.v1": {
+      "properties": {
+        "geid": {
+          "type": "text"
+        },
+        "eDt": {
+          "type": "date",
+          "ignore_malformed": false
+        },
+        "eDayYr": {
+          "type": "integer",
+          "ignore_malformed": false
+        },
+        "eDayWk": {
+          "type": "integer",
+          "ignore_malformed": false
+        },
+        "eDayMth": {
+          "type": "integer",
+          "ignore_malformed": false
+        },
+        "eMth": {
+          "type": "integer",
+          "ignore_malformed": false
+        },
+        "eYr": {
+          "type": "integer",
+          "ignore_malformed": false
+        },
+        "eMthYr": {
+          "type": "integer",
+          "ignore_malformed": false
+        },
+        "fractionDate": {
+          "type": "double"
+        },
+        "a1Code": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "a1Name": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "a1Country": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "a1Group": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "a1Ethnicity": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "a1Religion1": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "a1Religion2": {
+          "type": "text"
+        },
+        "a1Type1": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "a1Type2": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "a1Type3": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "a2Code": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "a2Name": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "a2Country": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "a2Group": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "a2Ethnicity": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "a2Religion1": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "a2Religion2": {
+          "type": "text"
+        },
+        "a2Type1": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "a2Type2": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "a2Type3": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "isRootEvent": {
+          "type": "boolean"
+        },
+        "eventCode": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "eventBaseCode": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "eventRootCode": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "quadClass": {
+          "type": "integer"
+        },
+        "goldsteinScale": {
+          "type": "double",
+          "ignore_malformed": false
+        },
+        "numMentions": {
+          "type": "double",
+          "ignore_malformed": false
+        },
+        "numSources": {
+          "type": "double",
+          "ignore_malformed": false
+        },
+        "numArticles": {
+          "type": "double",
+          "ignore_malformed": false
+        },
+        "avgTone": {
+          "type": "double",
+          "ignore_malformed": false
+        },
+        "a1GeoFeature": {
+          "type": "string"
+        },
+        "a1GeoType": {
+          "type": "integer"
+        },
+        "a1GeoName": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "a1GeoCountry": {
+          "type": "keyword"
+        },
+        "a1GeoAdm": {
+          "type": "keyword"
+        },
+        "a1Lat": {
+          "type": "double"
+        },
+        "a1Long": {
+          "type": "double"
+        },
+        "a2GeoFeature": {
+          "type": "keyword"
+        },
+        "a2GeoType": {
+          "type": "integer"
+        },
+        "a2GeoName": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "a2GeoCountry": {
+          "type": "keyword"
+        },
+        "a2GeoAdm": {
+          "type": "keyword"
+        },
+        "a2Lat": {
+          "type": "double"
+        },
+        "a2Long": {
+          "type": "double"
+        },
+        "actionGeoType": {
+          "type": "integer"
+        },
+        "actionGeoName": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "actionCountry": {
+          "type": "keyword"
+        },
+        "actionGeoAdm": {
+          "type": "keyword"
+        },
+        "actionLat": {
+          "type": "double"
+        },
+        "actionLong": {
+          "type": "double"
+        },
+        "actionGeoFeature": {
+          "type": "string"
+        },
+        "sourceUrl": {
+          "type": "string"
+        },
+        "a1Location": {
+          "type": "geo_point",
+          "ignore_malformed": false
+        },
+        "a2Location": {
+          "type": "geo_point",
+          "ignore_malformed": false
+        },
+        "actionLocation": {
+          "type": "geo_point",
+          "ignore_malformed": false
+        },
+        "fileName": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        }
+      }
+    }
+  }
+}
