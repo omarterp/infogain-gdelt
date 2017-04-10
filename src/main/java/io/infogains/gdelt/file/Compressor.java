@@ -1,9 +1,6 @@
 package io.infogains.gdelt.file;
 
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -26,13 +23,39 @@ public class Compressor {
         this.glob = glob;
     }
 
+    Compressor() {}
+
     public void compress() throws IOException {
 
         // Archive File
         try(DirectoryStream<Path> stream = Files.newDirectoryStream(dir, glob)) {
             for(Path entry : stream) {
                 String fileName = entry.toAbsolutePath().toString();
-                try(BufferedInputStream buffIn = new BufferedInputStream(new FileInputStream(fileName));
+                compress(new File(fileName));
+//                try(BufferedInputStream buffIn = new BufferedInputStream(new FileInputStream(fileName));
+//                    FileOutputStream dest = new FileOutputStream(fileName + ".gz");
+//                    GZIPOutputStream gzOut = new GZIPOutputStream(dest)) {
+//
+//                    byte[] data = new byte[BUFFER];
+//
+//                    System.out.println(fileName);
+//
+//                    int count;
+//                    while((count = buffIn.read(data, 0, BUFFER)) != -1) {
+//                        gzOut.write(data, 0, count);
+//                    }
+//                }
+            }
+        }
+    }
+
+    public void compress(File file) throws IOException {
+
+        // Archive File
+//        try(DirectoryStream<Path> stream = Files.newDirectoryStream(dir, glob)) {
+//            for(Path entry : stream) {
+                String fileName = file.getName();
+                try(BufferedInputStream buffIn = new BufferedInputStream(new FileInputStream(file));
                     FileOutputStream dest = new FileOutputStream(fileName + ".gz");
                     GZIPOutputStream gzOut = new GZIPOutputStream(dest)) {
 
@@ -45,8 +68,8 @@ public class Compressor {
                         gzOut.write(data, 0, count);
                     }
                 }
-            }
-        }
+//            }
+//        }
     }
 
     public static void main(String[] args) {

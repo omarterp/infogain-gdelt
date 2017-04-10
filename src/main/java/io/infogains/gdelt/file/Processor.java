@@ -2,6 +2,7 @@ package io.infogains.gdelt.file;
 
 import com.google.gson.Gson;
 import io.infogains.gdelt.aws.es.ElasticSearchService;
+import io.infogains.gdelt.aws.s3.S3Service;
 
 import java.io.*;
 import java.nio.file.*;
@@ -20,7 +21,7 @@ import java.util.zip.ZipFile;
  */
 public class Processor {
 
-    private static final int BATCH_SIZE = 500;
+    private static final int BATCH_SIZE = 1000;
     private static boolean pushToES = true;
 
     /**
@@ -251,6 +252,9 @@ public class Processor {
 
     public static void main(String[] args) throws IOException {
 
+        S3Service s3 = new S3Service();
+        Compressor compressor = new Compressor();
+
 //        List<Path> files = new ArrayList<>();
 //        try {
 //            files = Processor.listSourceFiles(Paths.get("."));
@@ -273,9 +277,18 @@ public class Processor {
 //                break;
 //
 //            }
+            //File jsonFile = new File("D:/data/in-gdelt/20150210.export.csv.zip");
+            //readZipFile(Paths.get(jsonFile.getAbsolutePath()));
 
-            readZipFile(Paths.get("D:/data/in-gdelt/20150210.export.csv.zip"));
-        } catch (IOException | ParseException e) {
+            //compressor.compress(jsonFile);
+            //s3.pushToS3(jsonFile.getName(), jsonFile);
+
+            try {
+                s3.pushToS3("20150210.export.csv.zip.gz", new File("20150210.export.csv.zip.gz"));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        } catch (IOException e) {//catch (IOException | ParseException e) {
             e.printStackTrace();
         }
     }
